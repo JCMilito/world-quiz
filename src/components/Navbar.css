@@ -1,0 +1,22 @@
+.nav-bar {
+    width: 100%;
+    height: 80px;
+    background-color: #191970;
+}
+
+.button-bar {
+    width: 10%;
+    float: left;
+}
+
+.title-bar {
+    width: 90%;
+    color: white;
+    font-size: 42px;
+    font-weight: bold;
+}
+
+.title {
+    padding-top: 5px;
+    float: right;
+}
