@@ -10,7 +10,7 @@ export default function App(): JSX.Element {
     setSubject(subject);
   }
 
-  const Subject = () => {
+  const CurrentQuestion = () => {
     const { subject } = useContext(Context);
     return <div><Question subject={subject} /></div>;
   };  
@@ -19,7 +19,7 @@ export default function App(): JSX.Element {
     <div className="App">
       <Context.Provider value={{ subject, change }}>
         <Navbar />
-        <Subject />
+        <CurrentQuestion />
       </Context.Provider>
     </div>
   );
