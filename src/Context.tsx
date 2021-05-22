@@ -1,11 +1,13 @@
 import { createContext } from "react";
 
 export const Context = createContext({
-  subject: '',
+  subject: "",
+  questionNumber: 0,
+  hits: 0,
   // eslint-disable-next-line @typescript-eslint/no-unused-vars, @typescript-eslint/no-empty-function
-  change: (subject: string) => {}
+  changeSubject: (subject: string) => {},
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars, @typescript-eslint/no-empty-function
+  updateQuestionNumber: (questionNumber: number) => {},
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars, @typescript-eslint/no-empty-function
+  updateHits: (hits: number) => {}
 });
-
-
-
-

@@ -54,10 +54,10 @@ export default function Navbar(): JSX.Element {
   const [openDrawer, setOpenDrawer] = useState(false);
   const [title, setTitle] = useState("General");
 
-  const { change } = useContext(Context);
+  const { changeSubject } = useContext(Context);
 
   const openPage = (subject: string, title: string) => {
-    change(subject);
+    changeSubject(subject);
     setTitle(title);
   };
 
