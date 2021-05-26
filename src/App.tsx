@@ -1,39 +1,46 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
+import { Container } from "@material-ui/core";
+
 import Navbar from "./components/Navbar";
-import Question from "./components/Question";
+import QuestionPage from "./components/QuestionPage";
 import { Context } from "./Context";
 
 export default function App(): JSX.Element {
-  const [subject, setSubject] = useState('');
+  const [subject, setSubject] = useState("general");
   const [questionNumber, setQuestionNumber] = useState(1);
-  const [hits, setHits] = useState(0);
-  
-  
-  function changeSubject(subject: string) {
+  const [lives, setLives] = useState(3);
+
+  const changeSubject = (subject: string) => {
     setSubject(subject);
     setQuestionNumber(1);
-    setHits(0);
-  }
+    setLives(3);
+  };
 
-  function updateQuestionNumber(questionNumber: number) {
+  const updateQuestionNumber = (questionNumber: number) => {
     setQuestionNumber(questionNumber);
-  }
+  };
 
-  function updateHits(hits: number) {
-    setHits(hits);
-  }
-
-  const CurrentQuestion = () => {
-    const { subject } = useContext(Context);
-    return <div><Question subject={subject} /></div>;
-  };  
+  const updateLives = (lives: number) => {
+    setLives(lives);
+  };
 
   return (
     <div className="App">
-      <Context.Provider value={{ subject, questionNumber, hits, changeSubject, updateQuestionNumber, updateHits }}>
+      <Context.Provider
+        value={{
+          subject,
+          questionNumber,
+          lives,
+          changeSubject,
+          updateQuestionNumber,
+          updateLives,
+        }}
+      >
         <Navbar />
-        <CurrentQuestion />
+        <Container maxWidth="sm">
+          <QuestionPage />
+        </Container>
       </Context.Provider>
-     </div>
+    </div>
   );
 }

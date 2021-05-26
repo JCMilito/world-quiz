@@ -2,10 +2,23 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
+import atlas from "./services/Atlas";
 
-ReactDOM.render(
-  <>
-    <App />
-  </>,
-  document.getElementById("root")
-);
+if (localStorage.getItem("countries") == null) {
+  atlas().then((result) => {
+    localStorage.setItem("countries", JSON.stringify(result));
+    ReactDOM.render(
+      <>
+        <App />
+      </>,
+      document.getElementById("root")
+    );
+  });
+} else {
+  ReactDOM.render(
+    <>
+      <App />
+    </>,
+    document.getElementById("root")
+  );
+}
