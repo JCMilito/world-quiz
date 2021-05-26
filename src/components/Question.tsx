@@ -1,6 +1,6 @@
+import React, { useContext } from "react";
 import { Container } from "@material-ui/core";
-import React from "react";
-import { useContext } from "react";
+import { toast } from "react-toastify";
 
 import { Context } from "../Context";
 import Country from "../model/Country";
@@ -16,10 +16,13 @@ export default function Question({ subject }: Props): JSX.Element {
     useContext(Context);
 
   const pick = (answer: number, correctIndex: number): void => {
-    if (answer != correctIndex) {
+    if (answer != correctIndex) {      
       updateLives(lives - 1);
-    }
-    updateQuestionNumber(questionNumber + 1);
+      toast.error("Wrong answer! Number of tries: " + (lives - 1), {autoClose: 3000, hideProgressBar: true});
+    } else {
+      updateQuestionNumber(questionNumber + 1);
+      toast.success("Right answer! Let's go to question #" + (questionNumber + 1), {autoClose: 3000, hideProgressBar: true});
+    }    
   };
 
   // eslint-disable-next-line
@@ -115,9 +118,9 @@ export default function Question({ subject }: Props): JSX.Element {
   return (
     <div className="App">
       <Container maxWidth="sm">
-      <img src={country.flag} className="flag"></img>
+        <img src={country.flag} className="flag"></img>
       </Container>
-      
+
       <Container>
         {alternatives.map((alternative, index) => (
           <div key={index}>
