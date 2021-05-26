@@ -1,0 +1,16 @@
+.game-over {
+    margin-top: 150px;
+    width: 600px;
+}
+
+.score {
+    margin-top: 20px;
+    font-size: 32px;
+    font-weight: bold;
+}
+
+@media only screen and (max-width: 600px) {
+    .game-over {
+        width: 100%;
+    }
+  }

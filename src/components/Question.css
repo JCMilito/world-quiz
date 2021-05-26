@@ -1,0 +1,13 @@
+.query {
+    margin-top: 10px;
+    padding-bottom: 10px;
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.flag {
+    margin-top: 10px;
+    width: 260px;
+    height: 160px;
+    background-color: lightgrey;
+}
